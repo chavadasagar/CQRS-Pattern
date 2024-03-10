@@ -1,6 +1,0 @@
-{
-  "DatabaseSettings": {
-    "DBProvider": "mssql",
-    "ConnectionString": "Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=CQRSData;Data Source=SAGAR\\sagar;Connect Timeout=6000"
-  }
-}
