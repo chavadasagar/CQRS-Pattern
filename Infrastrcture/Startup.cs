@@ -1,4 +1,5 @@
 ﻿using Infrastrcture.Common;
+using Infrastrcture.Middleware;
 using Infrastrcture.Persistance;
 using MediatR;
 using Microsoft.Extensions.Configuration;
@@ -14,6 +15,7 @@ namespace Infrastrcture
             return services
                 .AddServices()
                 .AddPersistance(config)
+                .AddExceptionMiddleware()
                 .AddMediatR(Assembly.GetExecutingAssembly());
         }
     }
