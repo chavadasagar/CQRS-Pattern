@@ -13,7 +13,7 @@ namespace Infrastrcture.Persistance.Context
             _configuration = configuration;
         }
 
-        public IDbConnection CreateConnection()
+        public SqlConnection CreateConnection()
         {
             var database = _configuration.GetSection("DatabaseSettings").Get<DatabaseSettings>();
             return new SqlConnection(database?.ConnectionString);

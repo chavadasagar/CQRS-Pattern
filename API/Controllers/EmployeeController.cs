@@ -1,4 +1,6 @@
 ﻿using Application.Catalog.Employee;
+using Application.Catalog.Employee.DTOs;
+using Domain.Catalog;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -15,9 +17,10 @@ namespace API.Controllers
             _mediator = mediator;
         }
 
+        [HttpPost]
         public async Task<IActionResult> GetAllEmployee()
         {
-            return Ok(_mediator.Send(new GetAllEmployeRequest()));
+            return Ok(await _mediator.Send(new GetAllEmployeRequest()));
         }
     }
 }

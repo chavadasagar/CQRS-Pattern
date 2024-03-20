@@ -1,7 +1,9 @@
-﻿using Application.Common.Persistence;
+﻿using Application.Catalog.Employee.DTOs;
+using Application.Common.Persistence;
 using Dapper;
 using Domain.Catalog;
 using Infrastrcture.Persistance.Context;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace Infrastrcture.Persistance
 {
@@ -18,7 +20,13 @@ namespace Infrastrcture.Persistance
             using (var connection = _cQRSPatternContext.CreateConnection())
             {
                 connection.Open();
-                return await connection.QueryAsync<Employee>("select * from Employee", new DynamicParameters());
+                return await connection.QueryAsync<Employee, List<Domain.Catalog.Task>, Employee>(("select * from employee e inner join task t on t.id = e.id"),
+                    map: (employee, task) =>{
+                        employee.Tasks = task;
+                        return employee;
+                },
+                splitOn: "Department"
+                );
             }
         }
     }

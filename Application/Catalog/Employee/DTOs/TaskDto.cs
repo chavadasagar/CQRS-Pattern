@@ -1,10 +1,10 @@
-﻿namespace Domain.Catalog
+﻿namespace Application.Catalog.Employee.DTOs
 {
-    public class Task
+    public class TaskDto
     {
         public int? Id { get; set; }
         public string? TaskDescription { get; set; }
-        public int? AssignedTo { get; set; }
+        public Guid? AssignedTo { get; set; }
         public DateTime? Deadline { get; set; }
         public string? Status { get; set; }
     }
