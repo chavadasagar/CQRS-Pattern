@@ -2,6 +2,7 @@ using API.Configuration;
 using Application;
 using Domain.Catalog;
 using Infrastrcture;
+using Infrastrcture.Middleware;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using System.Diagnostics.Metrics;
 using System.Security.Cryptography.X509Certificates;
